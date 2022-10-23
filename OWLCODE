@@ -1,0 +1,587 @@
+@prefix : <http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto> .
+
+<http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#has_actuator
+:has_actuator rdf:type owl:ObjectProperty ;
+              rdfs:domain :CPS ;
+              rdfs:range :actuator .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#has_feature_of_interest
+:has_feature_of_interest rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :feature ;
+                         rdfs:domain :observation ;
+                         rdfs:range :feature_of_interest .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#has_location
+:has_location rdf:type owl:ObjectProperty ;
+              rdfs:domain :sensor ;
+              rdfs:range :location .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#has_procedure
+:has_procedure rdf:type owl:ObjectProperty ;
+               rdfs:domain :observation ;
+               rdfs:range :procedure .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#has_sensors
+:has_sensors rdf:type owl:ObjectProperty ;
+             rdfs:domain :CPS ;
+             rdfs:range :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#observed_by
+:observed_by rdf:type owl:ObjectProperty ;
+             owl:inverseOf :observes ;
+             rdfs:domain :observation ;
+             rdfs:range :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#observed_property
+:observed_property rdf:type owl:ObjectProperty ;
+                   rdfs:domain :observation ;
+                   rdfs:range :observable_property .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#observes
+:observes rdf:type owl:ObjectProperty ;
+          rdfs:domain :sensor ;
+          rdfs:range :observation .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#connected
+:connected rdf:type owl:ObjectProperty ;
+           rdfs:domain :CPS ;
+           rdfs:range :network ,
+                      :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#feature
+:feature rdf:type owl:ObjectProperty ;
+         rdfs:domain :feature_of_interest ;
+         rdfs:range :observation .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_URI
+:has_URI rdf:type owl:ObjectProperty ;
+         rdfs:domain :CPS ;
+         rdfs:range :URI .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_configuration
+:has_configuration rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CPS ;
+                   rdfs:range :configuration .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_equipment
+:has_equipment rdf:type owl:ObjectProperty ;
+               rdfs:domain :information ;
+               rdfs:range :actuator ,
+                          :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_function
+:has_function rdf:type owl:ObjectProperty ;
+              rdfs:domain :CPS ,
+                          :sensor ;
+              rdfs:range :function .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_information
+:has_information rdf:type owl:ObjectProperty ;
+                 rdfs:domain :CPS ;
+                 rdfs:range :information .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_interface
+:has_interface rdf:type owl:ObjectProperty ;
+               rdfs:domain :CPS ;
+               rdfs:range :HMI .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_operation
+:has_operation rdf:type owl:ObjectProperty ;
+               rdfs:domain :CPS ;
+               rdfs:range :operation .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_parameter
+:has_parameter rdf:type owl:ObjectProperty ;
+               rdfs:domain :configuration ;
+               rdfs:range :parameter .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_property
+:has_property rdf:type owl:ObjectProperty ;
+              rdfs:domain :feature_of_interest ;
+              rdfs:range :observable_property .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_state
+:has_state rdf:type owl:ObjectProperty ;
+           rdfs:domain :CPS ;
+           rdfs:range :state .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#hosts
+:hosts rdf:type owl:ObjectProperty ;
+       rdfs:domain :platform ;
+       rdfs:range :CPS ,
+                  :sensor .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#IP_adress
+:IP_adress rdf:type owl:DatatypeProperty ;
+           rdfs:domain :parameter ;
+           rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#available
+:available rdf:type owl:DatatypeProperty ;
+           rdfs:domain :state ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#factory
+:factory rdf:type owl:DatatypeProperty ;
+         rdfs:domain :location ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#has_time
+:has_time rdf:type owl:DatatypeProperty ;
+          rdfs:domain :observation ;
+          rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#has_value
+:has_value rdf:type owl:DatatypeProperty ;
+           rdfs:domain :observation ;
+           rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#occuped
+:occuped rdf:type owl:DatatypeProperty ;
+         rdfs:domain :state ;
+         rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#port_number
+:port_number rdf:type owl:DatatypeProperty ;
+             rdfs:domain :parameter ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#result
+:result rdf:type owl:DatatypeProperty ;
+        rdfs:domain :observation ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#work_station
+:work_station rdf:type owl:DatatypeProperty ;
+              rdfs:domain :location ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#command
+:command rdf:type owl:DatatypeProperty ;
+         rdfs:domain :actuator ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#data
+:data rdf:type owl:DatatypeProperty ;
+      rdfs:domain :sensor ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#function
+:function rdf:type owl:DatatypeProperty ;
+          rdfs:domain :sensor ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#has_location
+:has_location rdf:type owl:DatatypeProperty ;
+              rdfs:domain :information ,
+                          :location ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :sensor ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#type
+:type rdf:type owl:DatatypeProperty ;
+      rdfs:domain :sensor ;
+      rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#geteway
+:geteway rdf:type owl:Class ;
+         rdfs:subClassOf :function .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#middleware
+:middleware rdf:type owl:Class ;
+            rdfs:subClassOf :function .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#CPS
+:CPS rdf:type owl:Class ;
+     rdfs:comment "Cyber Physical System" ;
+     rdfs:label "CPS" .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#HMI
+:HMI rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#URI
+:URI rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#WIP_state_sensor
+:WIP_state_sensor rdf:type owl:Class ;
+                  rdfs:subClassOf :sensor ;
+                  rdfs:comment "work in progress state data sensor" .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#actuator
+:actuator rdf:type owl:Class ;
+          owl:disjointWith :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#ambient_sensor
+:ambient_sensor rdf:type owl:Class ;
+                rdfs:subClassOf :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#configuration
+:configuration rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#controller
+:controller rdf:type owl:Class ;
+            rdfs:subClassOf :actuator ;
+            owl:disjointWith :embedded_system .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#embedded_system
+:embedded_system rdf:type owl:Class ;
+                 rdfs:subClassOf :actuator .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#energy_sensor
+:energy_sensor rdf:type owl:Class ;
+               rdfs:subClassOf :running_state_sensor ,
+                               :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#feature_of_interest
+:feature_of_interest rdf:type owl:Class ;
+                     rdfs:label "feature_of_interest" .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#function
+:function rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#humidity_sensor
+:humidity_sensor rdf:type owl:Class ;
+                 rdfs:subClassOf :ambient_sensor ,
+                                 :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#industrial_noise_sensor
+:industrial_noise_sensor rdf:type owl:Class ;
+                         rdfs:subClassOf :ambient_sensor ,
+                                         :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#information
+:information rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#location
+:location rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#network
+:network rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#observable_property
+:observable_property rdf:type owl:Class ;
+                     rdfs:label "observable_property" .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#observation
+:observation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#operation
+:operation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#parameter
+:parameter rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#platform
+:platform rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#procedure
+:procedure rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#running_state_sensor
+:running_state_sensor rdf:type owl:Class ;
+                      rdfs:subClassOf :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#sensor
+:sensor rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#state
+:state rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#temperature_sensor
+:temperature_sensor rdf:type owl:Class ;
+                    rdfs:subClassOf :ambient_sensor ,
+                                    :sensor .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#vibration_sensor
+:vibration_sensor rdf:type owl:Class ;
+                  rdfs:subClassOf :running_state_sensor ,
+                                  :sensor .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#humidity
+:humidity rdf:type owl:NamedIndividual ,
+                   :observable_property .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#industrial_noise
+:industrial_noise rdf:type owl:NamedIndividual ,
+                           :observable_property .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#observation1
+:observation1 rdf:type owl:NamedIndividual ,
+                       :observation ,
+                       :sensor ;
+              :has_location :workstation1 ;
+              :observed_by :sensor1 ;
+              :observed_property :humidity .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#temperature
+:temperature rdf:type owl:NamedIndividual ,
+                      :observable_property .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/I4.0-Onto#workstation1
+:workstation1 rdf:type owl:NamedIndividual ,
+                       :location .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#CPS1
+:CPS1 rdf:type owl:NamedIndividual ,
+               :CPS .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#actuator1
+:actuator1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#actuator2
+:actuator2 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#gaz_emission
+:gaz_emission rdf:type owl:NamedIndividual ,
+                       :observable_property .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#local1
+:local1 rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#sensor1
+:sensor1 rdf:type owl:NamedIndividual ,
+                  :ambient_sensor ,
+                  :humidity_sensor ,
+                  :sensor ;
+         :observes :observation1 .
+
+
+###  http://www.semanticweb.org/fatimazahra/ontologies/2022/9/untitled-ontology-32#sensor2
+:sensor2 rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:obs1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:hum rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:hval rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:obs2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:tem rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:tval rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "monitoring humidity"^^xsd:string ;
+   rdfs:label "Rule 1"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :observation ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :obs1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :observed_property ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :obs1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :hum
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :observable_property ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :hum
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :has_value ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :obs1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :hval
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :hval ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 60 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :result ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :obs1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "HIGH HUMIDITY LEVEL"^^xsd:string
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "temperature monitor"^^xsd:string ;
+   rdfs:label "Rule 2"^^xsd:string ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :observation ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :obs2
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :observed_property ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :obs2 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :tem
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :observable_property ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :tem
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :has_value ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :obs2 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :tval
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first :tval ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 85 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :result ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :obs2 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "VERY HIGH TEMPERATURE HAZARD"^^xsd:string
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
